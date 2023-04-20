@@ -27,14 +27,13 @@ jobs:
         ruby-version: 2.7
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       
-    - name: Install bundler
-      run: gem install bundler
-
-    - name: Install dependencies
-      run:
-          gem install capybara cucumber rspec selenium-webdriver site_prism pry
-      
 
     - name: Execute test
       run:
-          bundle exec cucumber 
+          bundle exec cucumber
+
+    - name: Step Archive production artifacts # permite que fazer o download do arquivo relatorio.
+      uses: actions/upload-artifact@v3
+      with:
+          name: reports
+          path: ./reports/report.html 
