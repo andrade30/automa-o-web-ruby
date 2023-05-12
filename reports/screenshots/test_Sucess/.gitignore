@@ -1,0 +1,2 @@
+#ignora todos os arquivos e subpastas da pasta "tests_success"
+[^.]*
